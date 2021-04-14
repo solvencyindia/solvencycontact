@@ -18,7 +18,7 @@ app.get("/", function(req,res){
 }) 
 
 //orders
-app.get('/contacts',(req,res) => {
+app.get('/Place',(req,res) => {
     db.collection('Contact').find({}).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
@@ -26,7 +26,7 @@ app.get('/contacts',(req,res) => {
 });
 
 //placeorder
-app.post('/placeorder',(req,res) => {
+app.post('/Contacts',(req,res) => {
     db.collection('Contact').insertOne(req.body,(err,result) => {
         if(err){
             throw err
