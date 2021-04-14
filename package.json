@@ -4,8 +4,14 @@
   "description": "This backend for solvency company contact page",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node restapi.js",
+    "dev": "nodemon restapi.js"
   },
+  "keywords": [
+    "node",
+    "express"
+  ],
   "author": "avinash",
   "license": "ISC",
   "dependencies": {
