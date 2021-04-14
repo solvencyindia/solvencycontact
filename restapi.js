@@ -1,7 +1,7 @@
 
 const express = require('express');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 7300;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 const mongoUrl = "mongodb+srv://solvency:solvency2021@cluster0.yvtn2.mongodb.net/Solvency?retryWrites=true&w=majority";
@@ -13,13 +13,13 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/',(req,res) => {
-    res.send(`<div><a href='https://solvencycontact.herokuapp.com/contacts'>Contacts</a></div>`)
-})
+app.get("/", function(req,res){
+    res.send("express is working")
+}) 
 
 //orders
 app.get('/contacts',(req,res) => {
-    db.collection('Contact Form').find({}).toArray((err,result) =>{
+    db.collection('Contact').find({}).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
@@ -27,7 +27,7 @@ app.get('/contacts',(req,res) => {
 
 //placeorder
 app.post('/placeorder',(req,res) => {
-    db.collection('Contact Form').insertOne(req.body,(err,result) => {
+    db.collection('Contact').insertOne(req.body,(err,result) => {
         if(err){
             throw err
         }else{
