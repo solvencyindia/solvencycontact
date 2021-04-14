@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cors());
 
-
+app.get('/',(req,res) => {
+    res.send(`<div><a href='https://solvencycontact.herokuapp.com/contacts'>Contacts</a></div>`)
+})
 
 //orders
 app.get('/contacts',(req,res) => {
@@ -37,7 +39,7 @@ app.post('/placeorder',(req,res) => {
 
 MongoClient.connect(mongoUrl,(err,client) => {
     if(err) console.log(err);
-    db = client.db('restaurentapp');
+    db = client.db('Solvency');
     app.listen(port,(err) => {
         if(err) throw err;
         console.log(`Server is running on port ${port}`)
