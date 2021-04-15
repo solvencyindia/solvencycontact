@@ -18,7 +18,7 @@ app.get("/", function(req,res){
 }) 
 
 //orders
-app.get('/Place',(req,res) => {
+app.get('/contactsplace',(req,res) => {
     db.collection('Contact').find({}).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
@@ -26,7 +26,7 @@ app.get('/Place',(req,res) => {
 });
 
 //placeorder
-app.post('/Contacts',(req,res) => {
+app.post('/contacts',(req,res) => {
     db.collection('Contact').insertOne(req.body,(err,result) => {
         if(err){
             throw err
@@ -34,6 +34,15 @@ app.post('/Contacts',(req,res) => {
             res.send('Data Added')
         }
     })
+});
+
+app.get('/delete/:id', (req, res) => {
+    Employee.findByIdAndRemove(req.params.id, (err, doc) => {
+        if (!err) {
+            res.redirect('/contactplace');
+        }
+        else { console.log('Error in employee delete :' + err); }
+    });
 });
 
 
