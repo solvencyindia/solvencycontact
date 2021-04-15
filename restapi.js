@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", function(req,res){
-    res.send("<h2 bgcolor="red">Only Authorized user can access</h2>")
+    res.send("<h2>Only Authorized user can access</h2>")
 }) 
 
 //orders
