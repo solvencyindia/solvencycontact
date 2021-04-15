@@ -36,7 +36,7 @@ app.post('/contacts',(req,res) => {
     })
 });
 
-app.get('/delete/:id', (req, res) => {
+app.get('/delete/:order_id', (req, res) => {
     Employee.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
             res.redirect('/contactplace');
