@@ -25,6 +25,13 @@ app.get('/contactsplace',(req,res) => {
     })
 });
 
+app.get('/employess',(req,res) => {
+    db.collection('Employees').find({}).toArray((err,result) =>{
+        if(err) throw err;
+        res.send(result)
+    })
+});
+
 //placeorder
 app.post('/contacts',(req,res) => {
     db.collection('Contact').insertOne(req.body,(err,result) => {
