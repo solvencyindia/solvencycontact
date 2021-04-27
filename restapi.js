@@ -25,7 +25,7 @@ app.get('/contactsplace',(req,res) => {
     })
 });
 
-app.get('/employess',(req,res) => {
+app.get('/employees',(req,res) => {
     db.collection('Employees').find({}).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
