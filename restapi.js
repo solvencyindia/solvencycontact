@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 7300;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongoUrl = "mongodb+srv://solvency:solvency2021@cluster0.yvtn2.mongodb.net/Solvency?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://solvency:x3qKzSc7o4Bw1Sqp@cluster0.yvtn2.mongodb.net/Solvency?retryWrites=true&w=majority";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let db;
